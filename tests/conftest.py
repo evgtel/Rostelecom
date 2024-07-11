@@ -2,9 +2,10 @@ import pytest
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 
+no_window = False
 
 @pytest.fixture
-def browser(no_window):
+def browser():
     options = Options()
     if no_window:
         options.add_argument("--headless=new")
