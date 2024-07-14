@@ -41,6 +41,6 @@ jobs:
             echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
       - name: test_auth_page
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
-        run: pytest tests/test_auth_page.py
+        run: pytest
 
 
