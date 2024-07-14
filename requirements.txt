@@ -19,4 +19,4 @@ websocket-client==1.8.0
 wsproto==1.2.0
 allure-python-commons
 termcolor~=2.4.0
-python-dotenv
+python-dotenv~=1.0.1
