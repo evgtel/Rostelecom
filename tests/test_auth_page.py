@@ -1,5 +1,9 @@
-import pytest
+
 from pages.auth_page import AuthPage
+import os
+from dotenv import load_dotenv, find_dotenv
+
+load_dotenv(find_dotenv())
 
 
 def test_authorisation(web_browser):
@@ -7,9 +11,9 @@ def test_authorisation(web_browser):
 
     page = AuthPage(web_browser)
 
-    page.login.send_keys('t_eugen@mail.ru')
+    page.login.send_keys(os.getenv('EMAIL'))
 
-    page.password.send_keys("t6E2azxc")
+    page.password.send_keys(os.getenv('PASSWORD'))
 
     page.btn.click()
 
