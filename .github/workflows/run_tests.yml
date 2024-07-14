@@ -1,0 +1,46 @@
+name: Automated tests for Rostelecom
+
+on:
+  workflow_dispatch:
+    inputs:
+      deployment_target:
+        description: Выберите тест
+        required: true
+        default: all_tests
+        type: choice
+        options:
+          - test_auth_page
+          - test_admin
+
+
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install Chrome
+        run: sudo apt-get install google-chrome-stable
+      - name: Install dependencies
+        run:  pip install -r requirements.txt
+      - name: Set environment variables
+        env:
+          EMAIL: ${{ secrets.EMAIL }}
+          PHONE: ${{ secrets.PHONE }}
+          UID: ${{ secrets.UID }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run: |
+            echo "EMAIL: ${{ secrets.EMAIL }}" >> $GITHUB_ENV
+            echo "PHONE: ${{ secrets.PHONE }}" >> $GITHUB_ENV
+            echo "UID: ${{ secrets.UID }}" >> $GITHUB_ENV
+            echo "PASSWORD: ${{ secrets.PASSWORD }}" >> $GITHUB_ENV
+      - name: test_auth_page
+        if: "github.event.inputs.deployment_target == 'test_auth_page'"
+        run: pytest tests/test_auth_page.py
+
+

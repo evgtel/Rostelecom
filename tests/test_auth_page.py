@@ -1,24 +1,16 @@
-from pages.auth_page import AuthPage
 import pytest
-from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
-# @pytest.fixture()
-# def browser():
-#     options = Options()
-#     # options.add_argument("--headless=new")
-#     chrome_browser = webdriver.Chrome(options=options)
-#     return chrome_browser
+from pages.auth_page import AuthPage
 
 
-def test_authorisation(browser):
+def test_authorisation(web_browser):
+    """ Authorisation with valid login and password. """
 
-    page = AuthPage(browser)
+    page = AuthPage(web_browser)
 
-    # page.login.send_keys('test123@yandex.ru')
-    page.input_username("12345")
-    # page.password.send_keys("123456")
+    page.login.send_keys('t_eugen@mail.ru')
 
-    # page.btn.click()
-    print("")
+    page.password.send_keys("t6E2azxc")
 
-    # assert page.get_current_url() == 'http://petfriends1.herokuapp.com/all_pets'
+    page.btn.click()
+
+    assert 'https://b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
