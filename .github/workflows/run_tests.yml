@@ -6,7 +6,7 @@ on:
       deployment_target:
         description: Выберите тест
         required: true
-        default: all_tests
+        default: test_auth_page
         type: choice
         options:
           - test_auth_page
@@ -15,13 +15,18 @@ on:
         description: Email
         required: false
         type: 'string'
+      phone:
+        description: Телефон
+        required: false
+        type: 'string'
+      uid:
+        description: Лицевой счет
+        required: false
+        type: 'string'
       password:
         description: Пароль
         required: false
         type: 'string'
-
-
-
 
 jobs:
   test:
@@ -40,6 +45,8 @@ jobs:
       - name: Set environment variable
         run: |
           echo "EMAIL=${{ github.event.inputs.email }}" >> $GITHUB_ENV
+          echo "PHONE=${{ github.event.inputs.phone }}" >> $GITHUB_ENV
+          echo "UID=${{ github.event.inputs.uid }}" >> $GITHUB_ENV
           echo "PASSWORD=${{ github.event.inputs.password }}" >> $GITHUB_ENV
       - name: Run tests
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
