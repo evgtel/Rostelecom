@@ -11,7 +11,7 @@ def test_authorisation(web_browser):
 
     page = AuthPage(web_browser)
 
-    page.login.send_keys(os.getenv('EMAIL'))
+    page.login.send_keys('t_eugen@mail.ru')
 
     page.password.send_keys(os.getenv('PASSWORD'))
 
