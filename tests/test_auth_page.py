@@ -27,7 +27,7 @@ def test_authorisation_valid_phone_password(web_browser):
 
 
 def test_authorisation_valid_uid_password(web_browser):
-    """ Authorisation with valid uid and password. """
+    """ Authorisation with valid ls and password. """
 
     page = AuthPage(web_browser)
     page.login.send_keys(os.getenv('LS'))
