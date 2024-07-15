@@ -35,12 +35,11 @@ jobs:
           UID: ${{ secrets.UID }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-#            echo "EMAIL='${{ secrets.EMAIL }}'" >> $GITHUB_ENV
-#            echo "PHONE='${{ secrets.PHONE }}'" >> $GITHUB_ENV
-#            echo "UID='${{ secrets.UID }}'" >> $GITHUB_ENV
-#            echo "PASSWORD='${{ secrets.PASSWORD }}'" >> $GITHUB_ENV
-            echo "EMAIL=t_eugen@mail.ru" >> $GITHUB_ENV
-            echo "PASSWORD=t6E2azxc" >> $GITHUB_ENV
+            echo "EMAIL='${{ secrets.EMAIL }}'" >> $GITHUB_ENV
+            echo "PHONE='${{ secrets.PHONE }}'" >> $GITHUB_ENV
+            echo "UID='${{ secrets.UID }}'" >> $GITHUB_ENV
+            echo "PASSWORD='${{ secrets.PASSWORD }}'" >> $GITHUB_ENV
+
       - name: test_auth_page
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
         run: pytest
