@@ -13,3 +13,12 @@ class AuthPage(WebPage):
     password = WebElement(id='password')
 
     btn = WebElement(name='login')
+
+    tab_phone = WebElement(id='t-btn-tab-phone')
+    tab_mail = WebElement(id='t-btn-tab-mail')
+    tab_login = WebElement(id='t-btn-tab-login')
+    tab_ls = WebElement(id='t-btn-tab-ls')
+    checkbox_remember = WebElement(name='rememberMe')
+
+
+

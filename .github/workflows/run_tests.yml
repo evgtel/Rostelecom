@@ -11,15 +11,19 @@ on:
         options:
           - test_auth_page
           - test_admin
-      email:
-        description: Email
-        required: false
-        type: 'string'
       phone:
         description: Телефон
         required: false
         type: 'string'
-      uid:
+      email:
+        description: Email
+        required: false
+        type: 'string'
+      login:
+        description: Логин
+        required: false
+        type: 'string'
+      ls:
         description: Лицевой счет
         required: false
         type: 'string'
@@ -46,7 +50,8 @@ jobs:
         run: |
           echo "EMAIL=${{ github.event.inputs.email }}" >> $GITHUB_ENV
           echo "PHONE=${{ github.event.inputs.phone }}" >> $GITHUB_ENV
-          echo "UID=${{ github.event.inputs.uid }}" >> $GITHUB_ENV
+          echo "LS=${{ github.event.inputs.ls }}" >> $GITHUB_ENV
+          echo "LOGIN=${{ github.event.inputs.login }}" >> $GITHUB_ENV
           echo "PASSWORD=${{ github.event.inputs.password }}" >> $GITHUB_ENV
       - name: Run tests
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
