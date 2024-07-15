@@ -8,7 +8,7 @@ load_dotenv(find_dotenv())
 
 def test_authorisation(web_browser):
     """ Authorisation with valid login and password. """
-
+    print(os.getenv('TEST'))
     page = AuthPage(web_browser)
 
     page.login.send_keys('t_eugen@mail.ru')
