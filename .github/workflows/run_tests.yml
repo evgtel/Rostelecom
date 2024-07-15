@@ -11,6 +11,10 @@ on:
         options:
           - test_auth_page
           - test_admin
+      email:
+        description: Email
+        required: false
+        type: 'string'
       password:
         description: Пароль
         required: false
@@ -18,12 +22,11 @@ on:
 
 
 
+
 jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Input valid password
-        run: echo "PASSWORD=${{ github.event.inputs.password}}
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Setup Python
@@ -34,12 +37,11 @@ jobs:
         run: sudo apt-get install google-chrome-stable
       - name: Install dependencies
         run:  pip install -r requirements.txt
+      - name: Set environment variable
+        run: |
+          echo "EMAIL=${{ github.event.inputs.email} >> $GITHUB_ENV
+          echo "PASSWORD=${{ github.event.inputs.password}} >> $GITHUB_ENV
       - name: Run tests
-        env:
-          EMAIL: ${{ secrets.EMAIL }}
-          PHONE: ${{ secrets.PHONE }}
-          UID: ${{ secrets.UID }}
-          PASSWORD: ${{ secrets.PASSWORD }}
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
         run: pytest
 
