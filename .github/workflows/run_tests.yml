@@ -18,6 +18,12 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
+      - name: Input valid account
+        run: |
+          read -p 'Email: ' EMAIL
+          echo 'EMAIL=$EMAIL' > $GITHUB_TNV
+          read -p 'Phone: ' PHONE
+          read -sp 'Password: ' PASSWORD
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Setup Python
@@ -28,6 +34,8 @@ jobs:
         run: sudo apt-get install google-chrome-stable
       - name: Install dependencies
         run:  pip install -r requirements.txt
+      - name: Install enviroment variable
+
       - name: Run tests
         env:
           EMAIL: ${{ secrets.EMAIL }}
