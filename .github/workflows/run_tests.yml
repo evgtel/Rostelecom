@@ -34,8 +34,6 @@ jobs:
         run: sudo apt-get install google-chrome-stable
       - name: Install dependencies
         run:  pip install -r requirements.txt
-      - name: Install enviroment variable
-
       - name: Run tests
         env:
           EMAIL: ${{ secrets.EMAIL }}
