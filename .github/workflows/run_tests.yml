@@ -11,6 +11,10 @@ on:
         options:
           - test_auth_page
           - test_admin
+      password:
+        description: Пароль
+        required: false
+        type: 'string'
 
 
 
@@ -18,12 +22,8 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - name: Input valid account
-        run: |
-          read -p 'Email: ' EMAIL
-          echo 'EMAIL=$EMAIL' > $GITHUB_TNV
-          read -p 'Phone: ' PHONE
-          read -sp 'Password: ' PASSWORD
+      - name: Input valid password
+        run: echo "PASSWORD=${{ github.event.inputs.password}}
       - name: Checkout repository
         uses: actions/checkout@v4
       - name: Setup Python
