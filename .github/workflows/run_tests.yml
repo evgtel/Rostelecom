@@ -29,16 +29,11 @@ jobs:
       - name: Install dependencies
         run:  pip install -r requirements.txt
       - name: Set environment variables
-        env:
-          EMAIL: ${{ secrets.EMAIL }}
-          PHONE: ${{ secrets.PHONE }}
-          UID: ${{ secrets.UID }}
-          PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-            echo "EMAIL='${{ secrets.EMAIL }}'" >> $GITHUB_ENV
+            echo "EMAIL='${{ env.EMAIL }}'" >> $GITHUB_ENV
             echo "PHONE='${{ secrets.PHONE }}'" >> $GITHUB_ENV
             echo "UID='${{ secrets.UID }}'" >> $GITHUB_ENV
-            echo "PASSWORD='${{ secrets.PASSWORD }}'" >> $GITHUB_ENV
+            echo "PASSWORD='${{ env.PASSWORD }}'" >> $GITHUB_ENV
             echo "TEST='This is test text'" >> $GITHUB_ENV
 
       - name: test_auth_page
