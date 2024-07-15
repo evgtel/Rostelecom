@@ -18,5 +18,5 @@ def test_authorisation(web_browser):
 
     page.btn.click()
 
-    assert "test text" in os.getenv('TEST')
+    assert "mail.ru" in os.getenv('EMAIL')
     # assert 'https://b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
