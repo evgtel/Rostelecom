@@ -8,7 +8,7 @@ load_dotenv(find_dotenv())
 
 def test_authorisation(web_browser):
     """ Authorisation with valid login and password. """
-    print(os.getenv('TEST'))
+    # print(os.getenv('TEST'))
     page = AuthPage(web_browser)
 
     page.login.send_keys('t_eugen@mail.ru')
@@ -18,4 +18,5 @@ def test_authorisation(web_browser):
 
     page.btn.click()
 
+    assert "test_text" in os.getenv('TEST')
     assert 'https://b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
