@@ -142,7 +142,8 @@ class WebElement(object):
         element = self.find()
 
         if element:
-            return element.get_attribute(attr_name)
+            str_ = element.get_attribute(attr_name)
+            return str_
 
     def _set_value(self, web_driver, value, clear=True):
         """ Set value to the input element. """

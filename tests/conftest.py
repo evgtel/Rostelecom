@@ -9,7 +9,7 @@ import pytest
 import allure
 import uuid
 
-no_window = True
+no_window = False
 
 @pytest.fixture
 def chrome_options(chrome_options):
