@@ -11,7 +11,7 @@ def tab_is_active(tab_element):
 
 
 def test_authorisation_valid_email_password(web_browser):
-    """ Authorisation with valid email and password. """
+    """ Authorisation with valid email and valid password. """
 
     page = AuthPage(web_browser)
     page.login.send_keys(os.getenv('EMAIL'))
@@ -21,7 +21,7 @@ def test_authorisation_valid_email_password(web_browser):
 
 
 def test_authorisation_valid_phone_password(web_browser):
-    """ Authorisation with valid phone and password. """
+    """ Authorisation with valid phone and valid password. """
 
     page = AuthPage(web_browser)
     page.login.send_keys(os.getenv('PHONE'))
@@ -31,7 +31,7 @@ def test_authorisation_valid_phone_password(web_browser):
 
 
 def test_authorisation_valid_uid_password(web_browser):
-    """ Authorisation with valid ls and password. """
+    """ Authorisation with valid LS and valid password. """
 
     page = AuthPage(web_browser)
     page.tab_ls.click()
