@@ -47,6 +47,7 @@ jobs:
       - name: Install dependencies
         run:  pip install -r requirements.txt
       - name: Set environment variable
+        shell: bash
         run: |
           echo "::add-mask::EMAIL=${{ github.event.inputs.email }}" >> $GITHUB_ENV
           echo "::add-mask::PHONE=${{ github.event.inputs.phone }}" >> $GITHUB_ENV
