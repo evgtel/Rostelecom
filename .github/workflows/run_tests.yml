@@ -48,9 +48,9 @@ jobs:
         run:  pip install -r requirements.txt
       - name: Set environment variable
         env:
-          EMAIL: ${{ secrets.email }}
-          PHONE: ${{ secrets.phone }}
-          LS: ${{ secrets.ls }}
+          EMAIL: ${{ secrets.EMAIL }}
+          PHONE: ${{ secrets.PHONE }}
+          LS: ${{ secrets.LS }}
           LOGIN: ${{ secrets.LOGIN }}
           PASSWORD: ${{ secrets.PASSWORD }}
         run: |
