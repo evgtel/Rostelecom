@@ -4,9 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="15764c5b-96e1-4cd1-805b-4a8aaed779e4" name="Changes" comment="Old">
-      <change beforePath="$PROJECT_DIR$/.idea/Rostelecom.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Rostelecom.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="15764c5b-96e1-4cd1-805b-4a8aaed779e4" name="Changes" comment="Edit yaml account">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +31,9 @@
     &quot;assignee&quot;: &quot;evgtel&quot;
   }
 }</component>
+  <component name="GithubDefaultAccount">
+    <option name="defaultAccountId" value="794bf093-91d5-4503-afab-e6dce293cdba" />
+  </component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/evgtel/Rostelecom.git&quot;,
@@ -50,6 +51,9 @@
   </component>
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
+    &quot;Python tests.Python tests for test_auth_page.test_authorisation_valid_phone_password.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_auth_page.test_authorisation_valid_uid_password.executor&quot;: &quot;Run&quot;,
+    &quot;Python tests.Python tests for test_auth_page.test_tab_active.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;last_opened_file_path&quot;: &quot;/home/telman/PycharmProjects/Rostelecom&quot;
@@ -60,10 +64,64 @@
       <recent name="$PROJECT_DIR$/pages" />
     </key>
   </component>
+  <component name="RunManager" selected="Python tests.Python tests for test_auth_page.test_tab_active">
+    <configuration name="Python tests for test_auth_page.test_authorisation_valid_phone_password" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Rostelecom" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_auth_page.test_authorisation_valid_phone_password&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_auth_page.test_authorisation_valid_uid_password" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Rostelecom" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_auth_page.test_authorisation_valid_uid_password&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Python tests for test_auth_page.test_tab_active" type="tests" factoryName="Autodetect" temporary="true" nameIsGenerated="true">
+      <module name="Rostelecom" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;test_auth_page.test_tab_active&quot;" />
+      <option name="_new_targetType" value="&quot;PYTHON&quot;" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python tests.Python tests for test_auth_page.test_tab_active" />
+        <item itemvalue="Python tests.Python tests for test_auth_page.test_authorisation_valid_uid_password" />
+        <item itemvalue="Python tests.Python tests for test_auth_page.test_authorisation_valid_phone_password" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-5b207ade9991-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.17890.14" />
+        <option value="bundled-python-sdk-0509580d9d50-746f403e7f0c-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-241.14494.241" />
       </set>
     </attachedChunks>
   </component>
@@ -84,11 +142,134 @@
       <option name="project" value="LOCAL" />
       <updated>1721027812232</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Edit yaml">
+      <option name="closed" value="true" />
+      <created>1721064543998</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1721064543998</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Edit yaml">
+      <option name="closed" value="true" />
+      <created>1721064684763</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721064684763</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Edit yaml">
+      <option name="closed" value="true" />
+      <created>1721065398802</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721065398802</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Edit yaml and test">
+      <option name="closed" value="true" />
+      <created>1721065984606</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1721065984606</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Edit yaml">
+      <option name="closed" value="true" />
+      <created>1721066152316</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1721066152316</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Edit yaml">
+      <option name="closed" value="true" />
+      <created>1721066295011</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1721066295011</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Edit yaml - add env.var PHONE and UID">
+      <option name="closed" value="true" />
+      <created>1721069149097</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1721069149097</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Add tests">
+      <option name="closed" value="true" />
+      <created>1721073528451</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1721073528451</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Window disable">
+      <option name="closed" value="true" />
+      <created>1721073921460</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1721073921460</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Edit test">
+      <option name="closed" value="true" />
+      <created>1721074092405</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1721074092405</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Add assert tab">
+      <option name="closed" value="true" />
+      <created>1721163794763</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1721163794763</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Edit yaml account">
+      <option name="closed" value="true" />
+      <created>1721231432887</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1721231432887</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Edit yaml account">
+      <option name="closed" value="true" />
+      <created>1721231901767</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1721231901767</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Old" />
-    <option name="LAST_COMMIT_MESSAGE" value="Old" />
+    <MESSAGE value="Edit yaml and test" />
+    <MESSAGE value="Edit yaml" />
+    <MESSAGE value="Edit yaml - add env.var PHONE and UID" />
+    <MESSAGE value="Add tests" />
+    <MESSAGE value="Window disable" />
+    <MESSAGE value="Edit test" />
+    <MESSAGE value="Add assert tab" />
+    <MESSAGE value="Edit yaml account" />
+    <option name="LAST_COMMIT_MESSAGE" value="Edit yaml account" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/pages/elements.py</url>
+          <line>145</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
