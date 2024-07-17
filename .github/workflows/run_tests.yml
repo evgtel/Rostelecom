@@ -49,11 +49,12 @@ jobs:
       - name: Set environment variable
         env:
           PASSWORD: ${{ secrets.PASSWORD }}
+          LOGIN: ${{ secrets.LOGIN }}
         run: |
           echo "EMAIL=${{ github.event.inputs.email }}" >> $GITHUB_ENV
           echo "PHONE=${{ github.event.inputs.phone }}" >> $GITHUB_ENV
           echo "LS=${{ github.event.inputs.ls }}" >> $GITHUB_ENV
-          echo "LOGIN=${{ github.event.inputs.login }}" >> $GITHUB_ENV
+          echo "LOGIN=${{ secrets.login }}" >> $GITHUB_ENV
           echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
       - name: Run tests
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
