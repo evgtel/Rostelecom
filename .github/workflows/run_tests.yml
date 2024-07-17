@@ -76,8 +76,8 @@ jobs:
         if: ${{ inputs.password }}
       - name: Run tests
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
-        # run: pytest
-        run: python -m pytest --alluredir allure-result
+        run: pytest
+#        run: python -m pytest --alluredir allure-result
       - name: Get Allure history
         uses: actions/checkout@v2
         if: always()
