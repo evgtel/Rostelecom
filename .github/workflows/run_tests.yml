@@ -60,20 +60,20 @@ jobs:
           echo "LOGIN=${{ secrets.LOGIN }}" >> $GITHUB_ENV
           echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
       - name: Set input Email
-        run: echo "EMAIL=${{ inputs.EMAIL }}" >> $GITHUB_ENV
-        if: ${{ inputs.EMAIL }}
+        run: echo "EMAIL=${{ inputs.email }}" >> $GITHUB_ENV
+        if: ${{ inputs.email }}
       - name: Set input Phone
-        run: echo "PHONE=${{ inputs.PHONE }}" >> $GITHUB_ENV
-        if: ${{ inputs.PHONE }}
+        run: echo "PHONE=${{ inputs.phone }}" >> $GITHUB_ENV
+        if: ${{ inputs.phone }}
       - name: Set input LS
-        run: echo "LS=${{ inputs.LS }}" >> $GITHUB_ENV
-        if: ${{ inputs.LS }}
+        run: echo "LS=${{ inputs.ls }}" >> $GITHUB_ENV
+        if: ${{ inputs.ls }}
       - name: Set input Login
-        run: echo "LOGIN=${{ inputs.LOGIN }}" >> $GITHUB_ENV
-        if: ${{ inputs.LOGIN }}
+        run: echo "LOGIN=${{ inputs.login }}" >> $GITHUB_ENV
+        if: ${{ inputs.login }}
       - name: Set input Password
-        run: echo "PASSWORD=${{ inputs.PASSWORD }}" >> $GITHUB_ENV
-        if: ${{ inputs.PASSWORD }}
+        run: echo "PASSWORD=${{ inputs.password }}" >> $GITHUB_ENV
+        if: ${{ inputs.password }}
       - name: Run tests
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
         run: pytest
