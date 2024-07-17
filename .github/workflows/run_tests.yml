@@ -47,13 +47,14 @@ jobs:
       - name: Install dependencies
         run:  pip install -r requirements.txt
       - name: Set environment variable
-        shell: bash
+        env:
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-          echo "::add-mask::EMAIL=${{ github.event.inputs.email }}" >> $GITHUB_ENV
-          echo "::add-mask::PHONE=${{ github.event.inputs.phone }}" >> $GITHUB_ENV
-          echo "::add-mask::LS=${{ github.event.inputs.ls }}" >> $GITHUB_ENV
-          echo "::add-mask::LOGIN=${{ github.event.inputs.login }}" >> $GITHUB_ENV
-          echo "::add-mask::PASSWORD=${{ github.event.inputs.password }}" >> $GITHUB_ENV
+          echo "EMAIL=${{ github.event.inputs.email }}" >> $GITHUB_ENV
+          echo "PHONE=${{ github.event.inputs.phone }}" >> $GITHUB_ENV
+          echo "LS=${{ github.event.inputs.ls }}" >> $GITHUB_ENV
+          echo "LOGIN=${{ github.event.inputs.login }}" >> $GITHUB_ENV
+          echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
       - name: Run tests
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
         run: pytest
