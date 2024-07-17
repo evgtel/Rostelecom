@@ -48,13 +48,16 @@ jobs:
         run:  pip install -r requirements.txt
       - name: Set environment variable
         env:
-          PASSWORD: ${{ secrets.PASSWORD }}
+          EMAIL: ${{ secrets.email }}
+          PHONE: ${{ secrets.phone }}
+          LS: ${{ secrets.ls }}
           LOGIN: ${{ secrets.LOGIN }}
+          PASSWORD: ${{ secrets.PASSWORD }}
         run: |
-          echo "EMAIL=${{ github.event.inputs.email }}" >> $GITHUB_ENV
-          echo "PHONE=${{ github.event.inputs.phone }}" >> $GITHUB_ENV
-          echo "LS=${{ github.event.inputs.ls }}" >> $GITHUB_ENV
-          echo "LOGIN=${{ secrets.login }}" >> $GITHUB_ENV
+          echo "EMAIL=${{ secrets.EMAIL }}" >> $GITHUB_ENV
+          echo "PHONE=${{ secrets.PHONE }}" >> $GITHUB_ENV
+          echo "LS=${{ secrets.LS }}" >> $GITHUB_ENV
+          echo "LOGIN=${{ secrets.LOGIN }}" >> $GITHUB_ENV
           echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
       - name: Run tests
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
