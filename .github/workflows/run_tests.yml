@@ -76,6 +76,29 @@ jobs:
         if: ${{ inputs.password }}
       - name: Run tests
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
-        run: pytest
-
+        # run: pytest
+        run: python -m pytest --alluredir allure-result
+      - name: Get Allure history
+        uses: actions/checkout@v2
+        if: always()
+        continue-on-error: true
+        with:
+          ref: gh-pages
+          path: gh-pages
+      - name: Build test report
+        uses: simple-elf/allure-report-action@v2
+        if: always()
+        with:
+          allure_results: allure-results
+          # gh_pages: gh-pages
+          # allure_report: allure-report
+          allure_history: allure-history
+          keep_reports: 20
+      - name: Deploy report to Github Pages
+        if: always()
+        uses: peaceiris/actions-gh-pages@v3
+        env:
+          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PUBLISH_BRANCH: gh-pages
+          PUBLISH_DIR: allure-history
 

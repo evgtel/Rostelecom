@@ -6,7 +6,7 @@ from termcolor import colored
 
 from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support import expected_conditions as ec
 from selenium.webdriver.common.keys import Keys
 
 
@@ -32,7 +32,7 @@ class WebElement(object):
 
         try:
             element = WebDriverWait(self._web_driver, timeout).until(
-               EC.presence_of_element_located(self._locator)
+               ec.presence_of_element_located(self._locator)
             )
         except:
             print(colored('Element not found on the page!', 'red'))
@@ -46,7 +46,7 @@ class WebElement(object):
 
         try:
             element = WebDriverWait(self._web_driver, timeout).until(
-                EC.element_to_be_clickable(self._locator)
+                ec.element_to_be_clickable(self._locator)
             )
         except:
             print(colored('Element not clickable!', 'red'))
@@ -84,7 +84,7 @@ class WebElement(object):
 
         try:
             element = WebDriverWait(self._web_driver, timeout).until(
-                EC.visibility_of_element_located(self._locator)
+                ec.visibility_of_element_located(self._locator)
             )
         except:
             print(colored('Element not visible!', 'red'))
@@ -237,7 +237,7 @@ class ManyWebElements(WebElement):
 
         try:
             elements = WebDriverWait(self._web_driver, timeout).until(
-               EC.presence_of_all_elements_located(self._locator)
+               ec.presence_of_all_elements_located(self._locator)
             )
         except:
             print(colored('Elements not found on the page!', 'red'))

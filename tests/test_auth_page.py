@@ -1,3 +1,4 @@
+import allure
 
 from pages.auth_page import AuthPage
 import os
@@ -17,7 +18,8 @@ def test_authorisation_valid_email_password(web_browser):
     page.login.send_keys(os.getenv('EMAIL'))
     page.password.send_keys(os.getenv('PASSWORD'))
     page.btn.click()
-    assert 'b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
+    with allure.step(" Login with valid email and password"):
+        assert 'b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
 
 
 def test_authorisation_valid_phone_password(web_browser):
