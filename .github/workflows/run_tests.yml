@@ -48,6 +48,8 @@ jobs:
         run: sudo apt-get install google-chrome-stable
       - name: Install dependencies
         run:  pip install -r requirements.txt
+
+#   Set environment variable from SECRETS
       - name: Set environment variable
         env:
           EMAIL: ${{ secrets.EMAIL }}
@@ -61,6 +63,8 @@ jobs:
           echo "LS=${{ secrets.LS }}" >> $GITHUB_ENV
           echo "LOGIN=${{ secrets.LOGIN }}" >> $GITHUB_ENV
           echo "PASSWORD=${{ secrets.PASSWORD }}" >> $GITHUB_ENV
+
+#   Overwrite env variable if exist inputs
       - name: Set input Email
         run: echo "EMAIL=${{ inputs.email }}" >> $GITHUB_ENV
         if: ${{ inputs.email }}
@@ -76,16 +80,12 @@ jobs:
       - name: Set input Password
         run: echo "PASSWORD=${{ inputs.password }}" >> $GITHUB_ENV
         if: ${{ inputs.password }}
+
 #   Run tests
       - name: Run tests
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
         run: python -m pytest --alluredir allure-result
-#   Control directory
-      - name: Control directory
-        run: |
-          ls -la .
-          ls -la ./allure-result
-          pwd
+
 #   Get allure history
       - name: Get Allure history
         uses: actions/checkout@v4
@@ -94,28 +94,16 @@ jobs:
         with:
           ref: gh-pages
           path: gh-pages
-#   Control directory
-      - name: Control directory
-        run: |
-          ls -la .
-          ls -la ./allure-result
-          pwd
+
 #   Build allure report
       - name: Build test report
         uses: simple-elf/allure-report-action@master
         if: always()
         with:
           allure_results: allure-result
-#          gh_pages: gh-pages
-#          allure_report: allure-report
           allure_history: allure_history
           keep_reports: 20
-#   Control directory
-      - name: Control directory
-        run: |
-          ls -la .
-          ls -la ./allure-result
-          pwd
+
 #   Deploy allure report
       - name: Deploy report to Github Pages
         if: always()
@@ -124,14 +112,3 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: gh-pages
           publish_dir: allure_history
-#   Control directory
-      - name: Control directory
-        run: |
-          ls -la .
-          ls -la ./allure-result
-          pwd
-#        env:
-#          PERSONAL_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#          PUBLISH_BRANCH: gh-pages
-#          PUBLISH_DIR: allure-result
-
