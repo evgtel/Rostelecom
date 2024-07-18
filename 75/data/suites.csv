@@ -1,0 +1,5 @@
+"Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
+"passed","Thu Jul 18 19:17:23 GMT 2024","Thu Jul 18 19:17:37 GMT 2024","14369","","Authorisation with valid email and valid password","","","","test_authorisation_valid_email_password"," Authorisation with valid email and valid password. "
+"skipped","Thu Jul 18 19:17:37 GMT 2024","Thu Jul 18 19:17:37 GMT 2024","0","","Authorisation with valid LS and valid password","","","","test_authorisation_valid_ls_password"," Authorisation with valid LS and valid password. "
+"skipped","Thu Jul 18 19:17:37 GMT 2024","Thu Jul 18 19:17:37 GMT 2024","0","","","","","","test_tab_active","  "
+"skipped","Thu Jul 18 19:17:37 GMT 2024","Thu Jul 18 19:17:37 GMT 2024","0","","Authorisation with valid phone and valid password","","","","test_authorisation_valid_phone_password"," Authorisation with valid phone and valid password. "
