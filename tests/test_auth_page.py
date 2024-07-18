@@ -32,7 +32,7 @@ def test_authorisation_valid_phone_password(web_browser):
     assert 'b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
 
 
-def test_authorisation_valid_uid_password(web_browser):
+def test_authorisation_valid_ls_password(web_browser):
     """ Authorisation with valid LS and valid password. """
 
     page = AuthPage(web_browser)
