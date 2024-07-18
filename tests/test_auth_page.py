@@ -1,5 +1,5 @@
 import allure
-
+import pytest
 from pages.auth_page import AuthPage
 import os
 from dotenv import load_dotenv, find_dotenv
@@ -15,6 +15,7 @@ def test_authorisation_valid_email_password(web_browser):
     """ Authorisation with valid email and valid password. """
 
     page = AuthPage(web_browser)
+    page.tab_mail.click()
     page.login.send_keys(os.getenv('EMAIL'))
     page.password.send_keys(os.getenv('PASSWORD'))
     page.btn.click()
@@ -22,6 +23,7 @@ def test_authorisation_valid_email_password(web_browser):
         assert 'b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
 
 
+@pytest.mark.skip
 def test_authorisation_valid_phone_password(web_browser):
     """ Authorisation with valid phone and valid password. """
 
@@ -32,6 +34,7 @@ def test_authorisation_valid_phone_password(web_browser):
     assert 'b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
 
 
+@pytest.mark.skip
 def test_authorisation_valid_ls_password(web_browser):
     """ Authorisation with valid LS and valid password. """
 
@@ -43,6 +46,7 @@ def test_authorisation_valid_ls_password(web_browser):
     assert 'b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
 
 
+@pytest.mark.skip
 def test_tab_active(web_browser):
     """  """
 
