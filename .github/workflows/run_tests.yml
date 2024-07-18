@@ -80,6 +80,10 @@ jobs:
       - name: Run tests
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
         run: python -m pytest --alluredir allure-result
+      - name: Control directory
+        run: |
+          ls -la .
+          ls -la ./allure-result
 #   Get allure history
       - name: Get Allure history
         uses: actions/checkout@v4
