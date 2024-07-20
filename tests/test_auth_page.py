@@ -12,6 +12,48 @@ def tab_is_active(tab_element):
 
 
 @pytest.mark.positive
+def test_open_authorization_page(web_browser):
+    """ Страница авторизации отображается корректно. """
+
+    page = AuthPage(web_browser)
+    page.wait_page_loaded()
+
+    with allure.step("Таб ТЕЛЕФОН присутствует"):
+        assert page.tab_phone.is_presented()
+
+    with allure.step("Таб ПОЧТА присутствует"):
+        assert page.tab_mail.is_presented()
+
+    with allure.step("Таб ЛОГИН присутствует"):
+        assert page.tab_login.is_presented()
+
+    with allure.step("Таб ЛИЦЕВОЙ СЧЕТ присутствует"):
+        assert page.tab_ls.is_presented()
+
+    with allure.step("Поле ЛОГИН присутствует"):
+        assert page.login.is_presented()
+
+    with allure.step("Поле ПАРОЛЬ присутствует"):
+        assert page.password.is_presented()
+
+    with allure.step("Кнопка ВОЙТИ присутствует"):
+        assert page.btn.is_presented()
+
+    with allure.step("Ссылка ЗАБЫЛ ПАРОЛЬ присутствует"):
+        assert page.forgot_password.is_presented()
+
+    with allure.step("Ссылка РЕГИСТРАЦИЯ присутствует"):
+        assert page.registration.is_presented()
+
+    with allure.step("Ссылка ПОМОЩЬ присутствует"):
+        assert page.help.is_presented()
+
+    with allure.step("По умолчанию активен таб ТЕЛЕФОН"):
+        assert tab_is_active(page.tab_phone)
+
+
+
+@pytest.mark.positive
 def test_authorisation_valid_email_password(web_browser):
     """ Authorisation with valid email and valid password. """
 
