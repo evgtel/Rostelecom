@@ -9,14 +9,14 @@ import pytest
 import allure
 import uuid
 
-no_window = True
+no_window = False
 
 @pytest.fixture
 def chrome_options(chrome_options):
     # chrome_options.binary_location = '/usr/bin/google-chrome-stable'
     chrome_options.add_argument('--headless=new')
     chrome_options.add_argument('--no-sandbox')
-    chrome_options.add_argument('--log-level=DEBUG')
+    # chrome_options.add_argument('--log-level=DEBUG')
 
     return chrome_options
 
