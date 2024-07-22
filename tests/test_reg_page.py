@@ -48,8 +48,8 @@ def test_open_registration_page(web_browser):
         assert page.help.is_presented()
 
 @allure.feature('Регистрация')
-@allure.story('Регистрация с валидными данными')
-@pytest.mark.skip
+@allure.story('Повторная регистрация с валидными данными не происходит')
+# @pytest.mark.skip
 def test_valid_registration(web_browser):
     page = RegistrationPage(web_browser, url='https://b2c.passport.rt.ru')
     page.wait_page_loaded()
@@ -65,7 +65,9 @@ def test_valid_registration(web_browser):
     page.password.send_keys('Ps123456')
     page.confirm_pass.send_keys('Ps123456')
     page.btn_reg.click()
-    assert True
+    el = page.message_account_already_exist.wait_to_be_clickable()
+    assert el.is_displayed()
+
 
 
 

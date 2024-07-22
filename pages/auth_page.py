@@ -15,10 +15,13 @@ class AuthPage(WebPage):
     password = WebElement(id='password')
 
     # Кнопка Войти
-    btn = WebElement(name='login')
+    btn = WebElement(id='kc-login')
 
     # Вкладка Телефон
     tab_phone = WebElement(id='t-btn-tab-phone')
+
+    # Подсказка в поле Телефон,Почта, Логин, Лицевой счет
+    hint_login = WebElement(class_name='rt-input__placeholder')
 
     # Вкладка Почта
     tab_mail = WebElement(id='t-btn-tab-mail')
@@ -60,3 +63,21 @@ class AuthPage(WebPage):
     help = WebElement(id='faq-open')
 
 
+
+    # Изображене Капча
+    image_captcha = WebElement(class_name='rt-captcha__image')
+
+    # Поле ввода Капча
+    input_captcha= WebElement(id='captcha')
+
+    # Кнопка Продолжить
+    btn_reset = WebElement(id='reset')
+
+    # Кнопка Вернуться назад
+    btn_back = WebElement(id='reset-back')
+
+    # Сообщение неверный логин или пароль
+    login_pass_error = WebElement(id='form-error-message')
+
+    # Введите адрес указанный при регистрации
+    message_mail_err = WebElement(id='username-meta')

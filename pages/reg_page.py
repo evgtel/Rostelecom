@@ -45,3 +45,6 @@ class RegistrationPage(WebPage):
 
     # Динамический элемент выпадающего списка регионов
     region_altayskiy_kray = WebElement(xpath="//div[@class='rt-select__list-item'][3]")
+
+    # Всплывающее окно Учетная запись уже существует
+    message_account_already_exist = WebElement(xpath="//button[@name='gotoLogin']")
