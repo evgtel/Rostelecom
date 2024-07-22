@@ -39,8 +39,7 @@ class RegistrationPage(WebPage):
     # Ссылка Помощь
     help = WebElement(id='faq-open')
 
-    # Динамическое сообщение Небходимо заполнить поле кириллицей 2-30 символов
-    # message_format_name_err = WebElement(class_name='rt-input-container__meta rt-input-container__meta--error')
+    # Динамическое сообщение "Небходимо заполнить поле кириллицей 2-30 символов"
     message_format_name_err = WebElement(xpath="//span[@class='rt-input-container__meta rt-input-container__meta--error']")
 
     # Динамический элемент выпадающего списка регионов

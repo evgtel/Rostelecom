@@ -202,7 +202,7 @@ def test_tab_active(web_browser):
 
 @allure.feature('Авторизация')
 @allure.testcase('','TC-RT-AUTH-014')
-@pytest.mark.positive
+@pytest.mark.negative
 def test_auth_wrong_phone(web_browser):
     """ Авторизация с неверным номером телефона """
     page = AuthPage(web_browser)
@@ -215,7 +215,7 @@ def test_auth_wrong_phone(web_browser):
 
 allure.feature('Авторизация')
 @allure.testcase('','TC-RT-AUTH-015')
-@pytest.mark.positive
+@pytest.mark.negative
 def test_auth_wrong_ls(web_browser):
     """ Авторизация с неверным лицевым счетом """
     page = AuthPage(web_browser)
@@ -228,16 +228,119 @@ def test_auth_wrong_ls(web_browser):
         assert page.login_pass_error.is_presented()
 
 @allure.feature('Авторизация')
-@pytest.mark.positive
+@pytest.mark.negative
 @allure.testcase('', 'TC-RT-AUTH-016')
+def test_authorisation_empty_email(web_browser):
+    """ Авторизация с незаполненным полем Почта """
+
+    page = AuthPage(web_browser)
+    page.wait_page_loaded()
+    page.tab_mail.click()
+    page.login.send_keys('')
+    page.password.send_keys(os.getenv('PASSWORD'))
+    page.btn.click()
+    with allure.step("Авторизация с незаполненным полем Почта"):
+        assert page.mail_not_corresponded.is_presented()
+
+@allure.feature('Авторизация')
+@pytest.mark.negative
+@allure.testcase('', 'TC-RT-AUTH-017')
 def test_authorisation_invalid_email(web_browser):
     """ Авторизация с некорректной почтой """
 
     page = AuthPage(web_browser)
     page.wait_page_loaded()
     page.tab_mail.click()
-    page.login.send_keys(os.getenv(''))
+    page.login.send_keys('#@mail.ru')
     page.password.send_keys(os.getenv('PASSWORD'))
     page.btn.click()
     with allure.step("Авторизация с некорректной почтой"):
-        assert 'b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
+        assert not page.login_pass_error.is_presented()  # не должно быть сообщения "Неверный логин или пароль"
+
+@allure.feature('Авторизация')
+@pytest.mark.negative
+@allure.testcase('', 'TC-RT-AUTH-018')
+def test_authorisation_empty_ls(web_browser):
+    """ Авторизация с незаполненным полем Лицевой счет """
+
+    page = AuthPage(web_browser)
+    page.wait_page_loaded()
+    page.tab_ls.click()
+    page.password.send_keys(os.getenv('PASSWORD'))
+    page.btn.click()
+    with allure.step("Авторизация с незаполненным полем Лицевой счет"):
+        assert page.msg_enter_ls.is_presented()
+
+
+@pytest.mark.negative
+@allure.feature('Авторизация')
+@allure.severity("normal")
+@allure.testcase('', 'TC-RT-AUTH-019')
+def test_authoration_small_ls(web_browser):
+    """ Авторизация с полем Лицевой счет меньше 12 цифр"""
+
+    page = AuthPage(web_browser)
+    page.wait_page_loaded()
+    page.tab_ls. click()
+    page.login.send_keys('11111111111')
+    page.password.click()
+    with allure.step("Авторизация с полем Лицевой счет меньше 12 цифр"):
+        assert page.msg_check_ls.is_presented()
+
+
+@pytest.mark.negative
+@allure.feature('Авторизация')
+@allure.severity("normal")
+@allure.testcase('', 'TC-RT-AUTH-020')
+def test_authorisation_big_ls(web_browser):
+    """ Авторизация с полем Лицевой счет больше 12 цифр"""
+
+    page = AuthPage(web_browser)
+    page.wait_page_loaded()
+    page.tab_ls. click()
+    page.login.send_keys('1111222233334444')
+    page.password.click()
+    with allure.step("Авторизация с полем Лицевой счет больше 12 цифр"):
+        assert page.login_text.get_attribute('value') == '111122223333'
+
+
+@pytest.mark.negative
+@allure.feature('Авторизация')
+@allure.severity("normal")
+@allure.testcase('', 'TC-RT-AUTH-021')
+def test_authorisation_latin_ls(web_browser):
+    """ Авторизация латинские буквы в поле Лицевой счет"""
+
+    page = AuthPage(web_browser)
+    page.wait_page_loaded()
+    page.tab_ls. click()
+    page.login.send_keys('aaaabbbbcccc')
+    page.password.click()
+    with allure.step("Авторизация латинские буквы в поле Лицевой счет"):
+        assert not page.login_text.get_attribute('value')
+
+
+@allure.feature('Авторизация')
+@pytest.mark.positive
+@allure.testcase('','TC-RT-AUTH-029')
+def test_ref_tbank(web_browser):
+    """ Ссылка на Т-Банк корректна """
+    page = AuthPage(web_browser)
+    page.wait_page_loaded()
+    page.oidc_tbank.click()
+    with allure.step("Ссылка на Т-Банк корректна"):
+        assert 'id.tinkoff.ru/auth/step' in page.get_current_url()
+
+
+@allure.feature('Авторизация')
+@pytest.mark.positive
+@allure.testcase('','TC-RT-AUTH-030')
+def test_ref_yandex(web_browser):
+    """ Ссылка на Яндекс корректна """
+    page = AuthPage(web_browser)
+    page.wait_page_loaded()
+    page.refresh()
+    page.oidc_ya.click()
+    page.wait_page_loaded()
+    with allure.step("Ссылка на Яндекс корректна"):
+        assert 'oauth.yandex.ru/authorize' in page.get_current_url()

@@ -12,6 +12,7 @@ load_dotenv(find_dotenv())
 @allure.feature('Регистрация')
 @allure.story('Форма регистрации открывается корректно')
 @pytest.mark.positive
+@allure.testcase('', 'TC-RT-AUTH-EXT')
 def test_open_registration_page(web_browser):
     """ Страница регистрации отображается корректно. """
 
@@ -49,6 +50,7 @@ def test_open_registration_page(web_browser):
 
 @allure.feature('Регистрация')
 @allure.story('Повторная регистрация с валидными данными не происходит')
+@allure.testcase('', 'TC-RT-AUTH-013')
 # @pytest.mark.skip
 def test_valid_registration(web_browser):
     page = RegistrationPage(web_browser, url='https://b2c.passport.rt.ru')
@@ -82,6 +84,7 @@ def test_valid_registration(web_browser):
 @allure.feature('Регистрация')
 @allure.story('Верификация имени при регистрации')
 @allure.severity("normal")
+@allure.testcase('', 'TC-RT-AUTH-(022-028')
 def test_registration_not_valid_name(web_browser, name):
     """ Регистрация - верификация имени"""
 

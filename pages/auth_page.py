@@ -80,4 +80,13 @@ class AuthPage(WebPage):
     login_pass_error = WebElement(id='form-error-message')
 
     # Введите адрес указанный при регистрации
-    message_mail_err = WebElement(id='username-meta')
+    mail_not_corresponded = WebElement(id='username-meta')
+
+    # Введите номер лицевого счета
+    msg_enter_ls = WebElement(id='username-meta')
+
+    # Проверьте номер лицевого счета
+    msg_check_ls = WebElement(id='username-meta')
+
+    # Скрытый текст поля Логин
+    login_text = WebElement(xpath="//input[@wfd-id='id2']")
