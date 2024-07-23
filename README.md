@@ -63,21 +63,24 @@
 Предполагается, что на компьютере установлен Python версии 3.10 или выше. 
 1. Загрузить на компьютер и распаковать zip-архив репозитория (Rostelecom-main.zip)
 2. В корне распакованного каталога Rostelecom-main создать файл **.env** и добавить свои данные по образцу:
-	EMAIL = 'test@test.ru'
-	PHONE = '+79000000000'
-	LOGIN = 'user12345'
-	LS = '112233445566'
-	PASSWORD = 'Password'
-3. Открыть терминал, перейтив каталог **Rostelecom-main**
-4. Создать виртуальное окружение
+   
+- EMAIL = 'test@test.ru'
+- PHONE = '+79000000000'
+- LOGIN = 'user12345'
+- LS = '112233445566'
+- PASSWORD = 'Password'
+
+4. Открыть терминал, перейтив каталог **Rostelecom-main**
+5. Создать виртуальное окружение
 	`python -m venv .venv`
-5. Активировать виртуальное окружение
-	`source .venv/bin/activate (Linux, Mac)`
+6. Активировать виртуальное окружение
+	`source .venv/bin/activate (Linux, Mac)` 
 	`.venv\Scripts\activate (Windows)`
-6. Установить зависимости `pip install -r requirements.txt`
-7. Запустить тесты:
+7. Установить зависимости `pip install -r requirements.txt`
+8. Запустить тесты:
 	`python -m pytest --alluredir allure-results`
-8. Запустить формирование отчета Allure-report
+9. Запустить формирование отчета Allure-report
 	`allure serve allure-results`
 
-		
+## Примечание
+Ввиду наличия на сайте Ростелеком защиты от вредоносных действий на странице авторизации может появиться капча, это влияет на прохождение тестов.
