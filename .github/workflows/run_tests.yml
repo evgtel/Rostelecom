@@ -83,10 +83,10 @@ jobs:
 
 #   Run tests
       - name: Exlude tests with real auth data
-        if: "github.event.inputs.deployment_target == 'test_auth_page'"
+        if: "github.event.inputs.deployment_target == 'test_without_real_auth'"
         run: python -m pytest -m "not real_auth" --alluredir allure-result
       - name: Run all tests
-        if: "github.event.inputs.deployment_target == 'test_auth_page'"
+        if: "github.event.inputs.deployment_target == 'test_all'"
         run: python -m pytest --alluredir allure-result
 
 #   Get allure history
