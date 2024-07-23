@@ -56,7 +56,7 @@ def test_open_registration_page(web_browser):
 @allure.severity("normal")
 @allure.testcase('', 'TC-RT-AUTH-013')
 # @pytest.mark.skip
-def test_valid_registration(web_browser):
+def test_repeat_valid_registration(web_browser):
     page = RegistrationPage(web_browser, url='https://b2c.passport.rt.ru')
     page.wait_page_loaded()
     page.registration.click()

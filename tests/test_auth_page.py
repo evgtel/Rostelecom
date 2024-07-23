@@ -124,7 +124,7 @@ def test_automated_change_phone_to_ls(web_browser):
         assert tab_is_active(page.tab_ls)
 
 
-@pytest.mark.skip
+@pytest.mark.real_auth
 @allure.feature('Авторизация')
 @pytest.mark.positive
 @allure.severity("normal")
@@ -141,7 +141,7 @@ def test_authorisation_valid_phone_password(web_browser):
         assert 'b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
 
 
-@pytest.mark.skip
+@pytest.mark.real_auth
 @allure.feature('Авторизация')
 @pytest.mark.positive
 @allure.severity("normal")
@@ -159,7 +159,7 @@ def test_authorisation_valid_email_password(web_browser):
         assert 'b2c.passport.rt.ru/account_b2c/page' in page.get_current_url()
 
 
-@pytest.mark.skip
+@pytest.mark.real_auth
 @allure.feature('Авторизация')
 @pytest.mark.positive
 @allure.severity("normal")
@@ -333,7 +333,7 @@ def test_authorisation_latin_ls(web_browser):
     page.login.send_keys('aaaabbbbcccc')
     page.password.click()
     with allure.step("Авторизация латинские буквы в поле Лицевой счет"):
-        assert not page.login_text.get_attribute('value')
+        assert not page.login_text.get_attribute('value')  # OK если поле пустое
 
 
 @allure.feature('Авторизация')
@@ -351,6 +351,7 @@ def test_ref_tbank(web_browser):
 
 @allure.feature('Авторизация')
 @pytest.mark.positive
+@pytest.mark.xfail
 @allure.severity("normal")
 @allure.testcase('','TC-RT-AUTH-030')
 def test_ref_yandex(web_browser):

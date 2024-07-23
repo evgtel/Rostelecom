@@ -9,7 +9,7 @@ import pytest
 import allure
 import uuid
 
-no_window = False
+no_window = True   # Запускать броузер без открытия графического окна - True
 
 @pytest.fixture
 def chrome_options(chrome_options):

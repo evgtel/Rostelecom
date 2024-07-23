@@ -89,4 +89,5 @@ class AuthPage(WebPage):
     msg_check_ls = WebElement(id='username-meta')
 
     # Скрытый текст поля Логин
-    login_text = WebElement(xpath="//input[@wfd-id='id2']")
+    login_text = WebElement(xpath="//input[@type='hidden' and @name='username']")
+    # login_text = WebElement(xpath="//input[@wfd-id='id2']")

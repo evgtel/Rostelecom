@@ -6,11 +6,11 @@ on:
       deployment_target:
         description: Выберите тест
         required: true
-        default: test_auth_page
+        default: test_without_real_auth
         type: choice
         options:
-          - test_auth_page
-          - test_admin
+          - test_without_real_auth
+          - test_all
       phone:
         description: Телефон
         required: false
@@ -82,7 +82,10 @@ jobs:
         if: ${{ inputs.password }}
 
 #   Run tests
-      - name: Run tests
+      - name: Exlude tests with real auth data
+        if: "github.event.inputs.deployment_target == 'test_auth_page'"
+        run: python -m pytest -m "not real_auth" --alluredir allure-result
+      - name: Run all tests
         if: "github.event.inputs.deployment_target == 'test_auth_page'"
         run: python -m pytest --alluredir allure-result
 
