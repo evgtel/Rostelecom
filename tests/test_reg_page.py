@@ -1,6 +1,6 @@
 import allure
 import pytest
-from .dataset_for_tests import reg_name
+from .dataset_for_tests import reg_name_params
 
 from selenium.webdriver.support.ui import WebDriverWait
 from pages.reg_page import RegistrationPage
@@ -48,8 +48,12 @@ def test_open_registration_page(web_browser):
     with allure.step("Ссылка Помощь присутствует"):
         assert page.help.is_presented()
 
+
+
 @allure.feature('Регистрация')
 @allure.story('Повторная регистрация с валидными данными не происходит')
+@pytest.mark.negative
+@allure.severity("normal")
 @allure.testcase('', 'TC-RT-AUTH-013')
 # @pytest.mark.skip
 def test_valid_registration(web_browser):
@@ -70,32 +74,41 @@ def test_valid_registration(web_browser):
     el = page.message_account_already_exist.wait_to_be_clickable()
     assert el.is_displayed()
 
+# @pytest.mark.parametrize("name", [reg_name[0][1], reg_name[1][1], reg_name[2][1],
+#                                   reg_name[3][1], reg_name[4][1], reg_name[5][1], reg_name[6][1]],
+#                                 ids=[reg_name[0][0], reg_name[1][0], reg_name[2][0],
+#                                     reg_name[3][0], reg_name[4][0], reg_name[5][0], reg_name[6][0]]
+#                          )
 
 
-
-
-
-@pytest.mark.parametrize("name", [reg_name[0][1], reg_name[1][1], reg_name[2][1],
-                                  reg_name[3][1], reg_name[4][1], reg_name[5][1], reg_name[6][1]],
-                                ids=[reg_name[0][0], reg_name[1][0], reg_name[2][0],
-                                    reg_name[3][0], reg_name[4][0], reg_name[5][0], reg_name[6][0]]
+@pytest.mark.parametrize('name, param, subtest', [reg_name_params[0], reg_name_params[1], reg_name_params[2],
+                         reg_name_params[3], reg_name_params[4], reg_name_params[5],
+                         reg_name_params[6]],
+                         ids=[reg_name_params[0][0], reg_name_params[1][0], reg_name_params[2][0],
+                         reg_name_params[3][0], reg_name_params[4][0], reg_name_params[5][0],
+                         reg_name_params[6][0]]
                          )
+
 @pytest.mark.negative
 @allure.feature('Регистрация')
 @allure.story('Верификация имени при регистрации')
 @allure.severity("normal")
-@allure.testcase('', 'TC-RT-AUTH-(022-028')
-def test_registration_not_valid_name(web_browser, name):
+def test_registration_not_valid_name(web_browser, name, param, subtest):
     """ Регистрация - верификация имени"""
 
+    start_tc_num = 22
     page = RegistrationPage(web_browser, url='https://b2c.passport.rt.ru')
     page.wait_page_loaded()
     page.registration.click()
 
     page.name.is_clickable()
-    page.name.send_keys(name)
+    page.name.send_keys(param)
     page.btn_reg.click()
-    assert page.message_format_name_err.is_presented()
+    with allure.step(name):
+        allure.dynamic.description(name)
+        allure.dynamic.testcase('', 'TC-RT-AUTH-0'+str(start_tc_num+subtest))
+        assert page.message_format_name_err.is_presented()
+
 
 
 
