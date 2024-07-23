@@ -70,11 +70,11 @@
 - LS = '112233445566'
 - PASSWORD = 'Password'
 
-4. Открыть терминал, перейтив каталог **Rostelecom-main**
+4. Открыть терминал, перейти в каталог **Rostelecom-main**
 5. Создать виртуальное окружение
 	`python -m venv .venv`
 6. Активировать виртуальное окружение
-	`source .venv/bin/activate (Linux, Mac)` 
+	`source .venv/bin/activate (Linux, Mac)` или
 	`.venv\Scripts\activate (Windows)`
 7. Установить зависимости `pip install -r requirements.txt`
 8. Запустить тесты:
