@@ -8,6 +8,7 @@ from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
 
+
 def tab_is_active(tab_element):
     """ Функция проверки состояния вкладки """
     return 'rt-tab--active' in tab_element.get_attribute("class")
@@ -58,6 +59,7 @@ def test_open_authorization_page(web_browser):
     with allure.step("По умолчанию активен таб ТЕЛЕФОН"):
         assert tab_is_active(page.tab_phone)
 
+
 @allure.feature('Авторизация')
 @allure.story('Переключение табов вручную')
 @allure.description('Активный таб Телефон переводит поле ввода учетных данных в режим аутентификации по телефонному номеру')
@@ -72,6 +74,7 @@ def test_active_tab_phone(web_browser):
     page.tab_phone.click()
     with allure.step("Активирование типа ввода Телефон"):
         assert "телефон" in (page.hint_login.get_text()).lower()
+
 
 @allure.feature('Авторизация')
 @allure.story('Переключение табов вручную')
@@ -88,6 +91,7 @@ def test_active_tab_ls(web_browser):
     with allure.step("Активирование типа ввода Лицевой счет"):
         assert "лицевой" in (page.hint_login.get_text()).lower()
 
+
 @allure.feature('Авторизация')
 @allure.story('Автоматическая смена таба')
 @allure.description('При вводе корректного номера телефона таб аутентификации Логин автоматически меняется на Телефон ')
@@ -95,7 +99,7 @@ def test_active_tab_ls(web_browser):
 @allure.severity("normal")
 @allure.testcase(URL_TC, 'TC-RT-AUTH-004')
 def test_automated_change_login_to_phone(web_browser):
-    """   """
+    """  Автоматическая смена таба Логин на Телефон """
     page = AuthPage(web_browser)
     page.wait_page_loaded()
     page.tab_login.click()
@@ -104,6 +108,7 @@ def test_automated_change_login_to_phone(web_browser):
     with allure.step("Автоматическая смена таба Логин на Телефон"):
         assert tab_is_active(page.tab_phone)
 
+
 @allure.feature('Авторизация')
 @allure.story('Автоматическая смена таба')
 @allure.description('При вводе корректного номера телефона таб аутентификации Лицевой счет автоматически меняется на Телефон')
@@ -111,7 +116,7 @@ def test_automated_change_login_to_phone(web_browser):
 @allure.severity("normal")
 @allure.testcase(URL_TC, 'TC-RT-AUTH-005')
 def test_automated_change_ls_to_phone(web_browser):
-    """   """
+    """  Автоматическая смена таба ЛС на Телефон """
     page = AuthPage(web_browser)
     page.wait_page_loaded()
     page.tab_ls.click()
@@ -202,7 +207,7 @@ def test_authorisation_valid_ls_password(web_browser):
 @allure.description('Форма восстановления пароля открывается корректно и содержит элементы для ввода учетных данных ')
 @pytest.mark.positive
 @allure.severity("normal")
-@allure.testcase(URL_TC,'TC-RT-AUTH-010')
+@allure.testcase(URL_TC, 'TC-RT-AUTH-010')
 def test_tab_active(web_browser):
     """ Форма восстановления пароля отображается корректно. """
     page = AuthPage(web_browser)
@@ -237,7 +242,7 @@ def test_tab_active(web_browser):
 @allure.description('Пользователь не сможет авторизоваться с номером телефона и паролем не прошедшим регистрацию')
 @pytest.mark.negative
 @allure.severity("normal")
-@allure.testcase(URL_TC,'TC-RT-AUTH-014')
+@allure.testcase(URL_TC, 'TC-RT-AUTH-014')
 def test_auth_wrong_phone(web_browser):
     """ Авторизация с неверным номером телефона """
     page = AuthPage(web_browser)
@@ -254,7 +259,7 @@ def test_auth_wrong_phone(web_browser):
 @allure.description('Пользователь не сможет авторизоваться введя невалидный лицевой счет')
 @pytest.mark.negative
 @allure.severity("normal")
-@allure.testcase(URL_TC,'TC-RT-AUTH-015')
+@allure.testcase(URL_TC, 'TC-RT-AUTH-015')
 def test_auth_wrong_ls(web_browser):
     """ Авторизация с неверным лицевым счетом """
     page = AuthPage(web_browser)
@@ -265,6 +270,7 @@ def test_auth_wrong_ls(web_browser):
     page.btn.click()
     with allure.step("Авторизация с неверным лицевым счетом"):
         assert page.login_pass_error.is_presented()
+
 
 @allure.feature('Авторизация')
 @allure.story('Верификация ввода в поле Почта при авторизации')
@@ -284,6 +290,7 @@ def test_authorisation_empty_email(web_browser):
     with allure.step("Авторизация с незаполненным полем Почта"):
         assert page.mail_not_corresponded.is_presented()
 
+
 @allure.feature('Авторизация')
 @allure.story('Верификация ввода в поле Почта при авторизации')
 @allure.description('Поле почта не принимает не разрешенные спецсимволы')
@@ -301,6 +308,7 @@ def test_authorisation_invalid_email(web_browser):
     page.btn.click()
     with allure.step("Авторизация с некорректной почтой"):
         assert not page.login_pass_error.is_presented()  # не должно быть сообщения "Неверный логин или пароль"
+
 
 @allure.feature('Авторизация')
 @allure.story('Верификация ввода в поле Лицевой счет при авторизации')
@@ -379,7 +387,7 @@ def test_authorisation_latin_ls(web_browser):
 @allure.description('Пользователь может перейти по ссылке для  авторизации через Т-Банк')
 @pytest.mark.positive
 @allure.severity("normal")
-@allure.testcase(URL_TC,'TC-RT-AUTH-029')
+@allure.testcase(URL_TC, 'TC-RT-AUTH-029')
 def test_ref_tbank(web_browser):
     """ Ссылка на Т-Банк корректна """
     page = AuthPage(web_browser)
@@ -395,13 +403,13 @@ def test_ref_tbank(web_browser):
 @pytest.mark.positive
 @pytest.mark.xfail
 @allure.severity("normal")
-@allure.testcase(URL_TC,'TC-RT-AUTH-030')
+@allure.testcase(URL_TC, 'TC-RT-AUTH-030')
 def test_ref_yandex(web_browser):
     """ Ссылка на Яндекс корректна """
     page = AuthPage(web_browser)
     page.wait_page_loaded()
     success = False
-    for i in range(1,3):
+    for i in range(1, 3):
         if page.oidc_ya.is_presented():
             page.oidc_ya.click()
             time.sleep(5)

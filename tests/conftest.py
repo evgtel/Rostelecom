@@ -11,6 +11,7 @@ import uuid
 
 no_window = True   # Запускать броузер без открытия графического окна - True
 
+
 @pytest.fixture
 def chrome_options(chrome_options):
     # chrome_options.binary_location = '/usr/bin/google-chrome-stable'

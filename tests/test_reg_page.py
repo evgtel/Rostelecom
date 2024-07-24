@@ -1,13 +1,11 @@
 import allure
 import pytest
 from .dataset_for_tests import reg_name_params, reg_ver_name_description, URL_TC
-
-from selenium.webdriver.support.ui import WebDriverWait
 from pages.reg_page import RegistrationPage
-import os
 from dotenv import load_dotenv, find_dotenv
 
 load_dotenv(find_dotenv())
+
 
 @allure.feature('Регистрация')
 @allure.story('Форма регистрации открывается корректно')
@@ -50,7 +48,6 @@ def test_open_registration_page(web_browser):
         assert page.help.is_presented()
 
 
-
 @allure.feature('Регистрация')
 @allure.story('Повторная регистрация с валидными данными не происходит')
 @pytest.mark.negative
@@ -66,7 +63,7 @@ def test_repeat_valid_registration(web_browser):
     page.name.is_clickable()
 
     page.name.send_keys("Евгений")
-    page.lastname.send_keys(("Евг"))
+    page.lastname.send_keys("Евг")
     page.region_altayskiy_kray.is_presented()
     page.region_list.click()
     page.email.send_keys('test@test.ru')
@@ -104,5 +101,3 @@ def test_registration_not_valid_name(web_browser, name, param, subtest):
         allure.dynamic.description(reg_ver_name_description[subtest])
         allure.dynamic.testcase(URL_TC, 'TC-RT-AUTH-0'+str(start_tc_num+subtest))
         assert page.message_format_name_err.is_presented()
-
-
