@@ -21,6 +21,10 @@
 - PageObject
 - Allure-report
 
+## Оформленные тест-кейсы и баг-репорт
+https://docs.google.com/spreadsheets/d/1TC0EEPHoIe_GETo3HoEPmzbQc-jH8SmziwTjgoHeVEE/edit?usp=sharing
+
+
 <!--Запуск тестов-->
 # Запуск тестов
 Запустить тесты можно двумя способами
